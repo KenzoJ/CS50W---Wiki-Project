@@ -11,7 +11,6 @@ def list_entries():
     return list(sorted(re.sub(r"\.md$", "", filename)
                 for filename in filenames if filename.endswith(".md")))
 
-
 def save_entry(title, content):
     """
     Saves an encyclopedia entry, given its title and Markdown
@@ -34,11 +33,3 @@ def get_entry(title):
         return f.read().decode("utf-8")
     except FileNotFoundError:
         return None
-
-def test_list_entries():
-    filenames = default_storage.listdir("entries")
-    
-    test_list = list(sorted(re.sub(r"\.md$", "", filename)
-            for filename in filenames if filename.endswith(".md")))
-    print(test_list)
-    return list("test", "testy")

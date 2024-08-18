@@ -1,0 +1,19 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+    
+{% endblock %}
+
+
+{% block body %}
+    <body>
+        <h1>Add Task:</h1>
+        <form action="{% url 'add' %}" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit">
+        </form>
+        <a href="{% url 'index' %}">View Tasks </a>
+    
+{% endblock %}

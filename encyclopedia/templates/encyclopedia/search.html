@@ -4,18 +4,19 @@
     Encyclopedia
 {% endblock %}
 
-{% if search_term %}
-    <h2>Search results for "{{ search_term }}"</h2>
+{% block body %}
+    {% if search_term %}
+        <h2>Search results for "{{ search_term }}"</h2>
 
-    {% if search_results %}
-        <ul>
-            {% for result in search_results %}
-                <li>{{ result }}</li> 
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>No results found.</p>
+        {% if search_results %}
+            <ul>
+                {% for result in search_results %}
+                    
+                    <a href="{% url 'article' result %}">{{ result }}</a>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No results found.</p>
+        {% endif %}
     {% endif %}
-{% endif %}
-
 {% endblock %}
